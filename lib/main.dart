@@ -87,6 +87,7 @@ class _MyAppState extends State<MyHomePage> {
   }
 
   void fetchUsers() async {
+    //saveUser();
     print("Api call start");
     const url = "https://gorest.co.in/public/v2/users";
     final uri = Uri.parse(url);
@@ -97,6 +98,14 @@ class _MyAppState extends State<MyHomePage> {
       users = json;
     });
     print("Api call End");
+  }
+
+  void saveUser() async {
+    const url = "https://gorest.co.in/public/v2/users";
+    final uri = Uri.parse(url);
+    var response = await http.post(uri, body: {'name': 'Mojidul', 'email': 'mojidul31@gmail.com', 'gender':'male','status':'active'});
+    print('Response status: ${response.statusCode}');
+    print('Response body: ${response.body}');
   }
 }
 
