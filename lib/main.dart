@@ -1,7 +1,7 @@
-
-import 'package:face_app/data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'data.dart';
 
 void main(){
   runApp(const DocumentApp());
@@ -32,14 +32,17 @@ class DocumentScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
+    final metadataRecord = document.metadata;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("PWD"),
+        //title: const Text("PWD"),
+        title: Text(metadataRecord.$1),
       ),
-      body: const Column(
+      body: Column(
         children: [
           Center(
-            child: Text('DocumentScreen Body'),
+            child: Text("Last modified ${metadataRecord.modified}",),
           )
         ],
       ),
