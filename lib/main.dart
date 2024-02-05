@@ -32,17 +32,22 @@ class DocumentScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
-    final metadataRecord = document.metadata;
+    //final metadataRecord = document.metadata;
+    //final (title, modified: modified) = document.metadata;   // Modify
+    //final (title, :modified) = document.metadata;            // Modify
+    final (title, modified: localVariableName) = document.metadata; // local variable different name
 
     return Scaffold(
       appBar: AppBar(
         //title: const Text("PWD"),
-        title: Text(metadataRecord.$1),
+        //title: Text(metadataRecord.$1),
+        title: Text(title),
       ),
       body: Column(
         children: [
           Center(
-            child: Text("Last modified ${metadataRecord.modified}",),
+            //child: Text("Last modified ${metadataRecord.modified}",),
+            child: Text('Last modified $localVariableName'),
           )
         ],
       ),
