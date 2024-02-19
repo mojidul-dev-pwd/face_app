@@ -1,57 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Pages/LoginPage.dart';
 import 'data.dart';
 
 void main(){
-  runApp(const DocumentApp());
-}
-
-class DocumentApp extends StatelessWidget{
-  const DocumentApp({super.key});
-
-  @override
-  Widget build(BuildContext context){
-    return MaterialApp(
-      theme: ThemeData(useMaterial3: true),
-      debugShowCheckedModeBanner: false,
-      home: DocumentScreen(
-        document:Document(),
-      )
-    );
-  }
-}
-
-class DocumentScreen extends StatelessWidget{
-  final Document document;
-
-  const DocumentScreen({
-    required this.document,
-    super.key
-  });
-
-  @override
-  Widget build(BuildContext context){
-    //final metadataRecord = document.metadata;
-    //final (title, modified: modified) = document.metadata;   // Modify
-    //final (title, :modified) = document.metadata;            // Modify
-    final (title, modified: localVariableName) = document.metadata; // local variable different name
-
-    return Scaffold(
-      appBar: AppBar(
-        //title: const Text("PWD"),
-        //title: Text(metadataRecord.$1),
-        title: Text(title),
-      ),
-      body: Column(
-        children: [
-          Center(
-            //child: Text("Last modified ${metadataRecord.modified}",),
-            child: Text('Last modified $localVariableName'),
-          )
-        ],
-      ),
-    );
-  }
-
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    initialRoute: 'login',
+    routes: {'login':(context)=> LoginPage()},
+  ));
 }
