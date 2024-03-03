@@ -1,3 +1,4 @@
+import 'package:face_app/Pages/register.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,9 @@ void main(){
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     initialRoute: 'login',
-    routes: {'login':(context)=> LoginPage()},
+    routes: {
+      'login':(context)=> LoginPage(),
+      'register':(context)=> RegistrationPage()
+    },
   ));
 }
